@@ -1,0 +1,109 @@
+.Results{
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+    height: 100%;
+}
+
+.current-selected{
+    flex: 0 40px;
+    background: rgba(255, 255, 255, .1);
+}
+
+.current-selected .clear-all{
+    width: 60px;
+    height: 30px;
+    margin: 5px;
+    line-height: 30px;
+    text-align: center;
+    color: #FFF;
+    cursor: pointer;
+    float: left;
+    background: rgba(255, 255, 255, .3);
+    transition: all ease .1s;
+    user-select: none;
+}
+
+.current-selected .clear-all:active{
+    background: rgba(255, 255, 255, .5);
+}
+
+.current-selected img{
+    float: left;
+    margin: 4px 0;
+}
+
+.content{
+    flex: 1;
+    background: rgba(255, 255, 255, .2);
+    overflow-y: auto;
+}
+
+.result-card{
+    height: 120px;
+    margin: 10px;
+    background: rgba(255, 255, 255, .1);
+    white-space: nowrap;
+    overflow-x: auto;
+    font-size: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, .2);
+}
+
+.result-card > div {
+    display: inline-block;
+    height: 120px;
+    vertical-align: bottom;
+}
+
+.result-card .item {
+    width: 100px;
+    border-right: 1px solid rgba(255, 255, 255, .3);
+}
+
+.result-card .item img {
+    display: block;
+    width: 32px;
+    width: 32px;
+    margin: 20px auto 10px;
+}
+
+.result-card .item div{
+    font-size: 16px;
+    color: #FFF;
+    text-align: center;
+    padding: 0 10px;
+    white-space: break-spaces;
+}
+
+.match{
+    border-right: 1px solid rgba(255, 255, 255, .3);
+    white-space: nowrap;
+    width: 680px;
+    overflow: hidden;
+}
+
+.match-block{
+    display: inline-block;
+    width: 170px;
+    padding: 0 10px;
+    height: 120px;
+    font-size: 14px;
+    color: #CCC;
+    overflow-y: auto;
+}
+
+.match-block.mb2{
+    background: rgba(0, 0, 0, .1);
+}
+
+.match-block *{
+    height: 32px;
+    line-height: 32px;
+    float: left;
+}
+
+.match-block div{
+    padding: 0 0 0 5px;
+    text-align: left;
+    width: 100%;
+}
