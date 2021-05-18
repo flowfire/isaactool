@@ -35,7 +35,7 @@
     datas.push(data)
     })
 
-    // console.log(datas)
-    console.log(falldownImgs)
+    console.log(datas.map(a => a.item.img))
+    // console.log(falldownImgs)
     // console.log(Object.keys(falldownImgs).length)
 }

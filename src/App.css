@@ -1,4 +1,24 @@
-body{
+::-webkit-scrollbar {
+    background: #333;
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-button {
+    display: none;
+}
+
+::-webkit-scrollbar-thumb {
+    width: 10px;
+    background: #111;
+}
+
+/* ::-webkit-scrollbar-track — 滚动条轨道.
+::-webkit-scrollbar-track-piece — 滚动条没有滑块的轨道部分.
+::-webkit-scrollbar-corner — 当同时有垂直滚动条和水平滚动条时交汇的部分.
+::-webkit-resizer — 某些元素的corner部分的部分样式(例:textarea的可拖动按钮). */
+
+body {
     background: #233;
 }
 
@@ -6,15 +26,15 @@ body{
     box-sizing: border-box;
 }
 
-.App{
+.App {
     height: 100vh;
     display: flex;
     flex-direction: column;
 }
 
-.top{
+.top {
     flex: 0 40px;
-    box-shadow: 0 -5px 0 -3px  #123 inset;
+    box-shadow: 0 -5px 0 -3px #123 inset;
 }
 
 .bottom {
@@ -22,16 +42,36 @@ body{
     display: flex;
 }
 
-.left{
+.left {
     flex: 0 470px;
     float: left;
     height: calc(100vh - 40px);
     overflow-y: auto;
 }
 
-.right{
+.right {
     flex: 1;
     float: left;
     height: calc(100vh - 40px);
     overflow-y: auto;
+}
+
+
+
+.opera-button {
+    padding: 0 10px;
+    height: 30px;
+    margin: 5px;
+    line-height: 30px;
+    text-align: center;
+    color: #FFF;
+    cursor: pointer;
+    float: left;
+    background: rgba(255, 255, 255, .3);
+    transition: all ease .1s;
+    user-select: none;
+}
+
+.opera-button:active {
+    background: rgba(255, 255, 255, .5);
 }

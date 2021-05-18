@@ -1,8 +1,7 @@
-import { peifangs, falldownImgs } from "./data/data";
-
-
 export const TAGS = {
     selectedFalldownsChange: Symbol("selectedFalldownsChange"),
+    toolModeChange: Symbol("toolModeChange"),
+    searchKeywordChange: Symbol("searchKeywordChange"),
 }
 
 class Search{
@@ -26,6 +25,8 @@ class Search{
             catch(e){}
         })
     }
+    toolMode = "filter"
+    searchKeyword = ""
     selectedFalldowns = []
 }
 

@@ -1,4 +1,12 @@
-.all-falldown .type-title{
+.all-falldown .tool-mode {
+    margin: 10px 5px;
+}
+
+.all-falldown .tool-mode .opera-button {
+    float: none;
+}
+
+.all-falldown .type-title {
     border-top: 1px solid #999;
     margin: 10px 10px 0;
     height: 40px;
@@ -8,14 +16,15 @@
     font-weight: bold;
     color: #999;
 }
-.all-falldown .type-item{
+
+.all-falldown .type-item {
     margin: 0 10px;
     padding-right: 10px;
     background: rgba(255, 255, 255, 0.1);
     overflow: hidden;
 }
 
-.all-falldown .type-item .card{
+.all-falldown .type-item .card {
     width: 100px;
     background: rgba(255, 255, 255, .1);
     float: left;
@@ -26,16 +35,35 @@
     transition: all ease .1s;
 }
 
-.all-falldown .type-item .card:active{
+.all-falldown .type-item .card:active {
     background: rgba(255, 255, 255, .2);
 }
 
-.all-falldown .type-item .card img{
+.all-falldown .type-item .card img {
     display: block;
     margin: 10px auto 5px;
 }
 
-.all-falldown .type-item .card div{
+.all-falldown .type-item .card div {
     text-align: center;
     color: #AAA;
+}
+
+.search-bar {
+    margin: 0 10px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.search-bar input {
+    color: #FFF;
+    background-color: transparent;
+    border: none;
+    height: 40px;
+    line-height: 40px;
+    display: block;
+    width: 100%;
+    padding: 0 10px;
+    outline: none;
+    font-size: 16px;
 }
