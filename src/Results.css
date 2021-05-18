@@ -51,6 +51,8 @@
 }
 
 .result-card .item {
+    cursor: pointer;
+    position: relative;
     width: 130px;
     background-size: 50% auto;
     background-repeat: no-repeat;

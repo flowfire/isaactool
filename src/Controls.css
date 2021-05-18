@@ -67,3 +67,98 @@
     outline: none;
     font-size: 16px;
 }
+
+.item-detail-mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 8;
+    background: rgba(0, 0, 0, .5);
+    /* backdrop-filter: blur(5px); */
+}
+
+.item-detail {
+    border: 2px solid rgba(0, 0, 0, .5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 400px;
+    height: 300px;
+    background: rgba(50, 50, 50, .98);
+    color: #CCC;
+    margin: auto;
+    z-index: 9;
+}
+
+.item-detail-close {
+    user-select: none;
+    font-size: 20px;
+    color: #FFF;
+    font-family: "Consolas";
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 40px;
+    width: 40px;
+    line-height: 40px;
+    text-align: center;
+    background-color: rgba(255, 100, 75);
+    cursor: pointer;
+}
+
+.item-detail-close:active {
+    background-color: rgba(200, 50, 25);
+}
+
+.item-detail-image {
+    height: 50px;
+    width: 50px;
+    background-size: contain;
+    image-rendering: pixelated;
+    margin: auto;
+}
+
+.item-detail-title {
+    margin-top: 20px;
+    line-height: 30px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.item-detail-chinese {
+    margin-top: 0px;
+    line-height: 30px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.item-detail-id {
+    font-size: 14px;
+    margin-top: 10px;
+    line-height: 30px;
+    padding: 0 20px;
+}
+
+.item-detail-description {
+    font-size: 14px;
+    margin-top: 0px;
+    line-height: 30px;
+    padding: 0 20px;
+}
+
+.item-detail a {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-right: 20px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 14px;
+    color: rgba(0, 0, 100);
+    text-decoration: none;
+    font-weight: bold;
+}

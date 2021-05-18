@@ -39,3 +39,29 @@
     // console.log(falldownImgs)
     // console.log(Object.keys(falldownImgs).length)
 }
+{
+    let datas = []
+    document.querySelectorAll("#AAA tr").forEach(tr => {
+        let data = {
+            id: null,
+            chineseName: "",
+            description: "",
+        }
+        let tds = tr.querySelectorAll("td")
+        tds.forEach((td, index) => {
+            switch(index){
+                case 0:
+                    data.chineseName = td.querySelector("a").innerHTML
+                    break;
+                case 2:
+                    data.id = Number(td.innerHTML)
+                    break;
+                case 6:
+                    data.description = td.innerHTML
+                    break;
+            }
+        })
+        datas.push(data)
+    })
+    console.log(datas)
+}

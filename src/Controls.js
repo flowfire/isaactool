@@ -60,7 +60,7 @@ export default class Controls extends React.PureComponent {
             ) }
           </div>
           </div>)
-        }) : <div className="search-bar"><input onInput={this.onChangeSearchKeyword.bind(this)} placeholder="请输入道具 id 或道具名（英文）"/></div> }
+        }) : <div className="search-bar"><input onInput={this.onChangeSearchKeyword.bind(this)} placeholder="请输入道具 id 或道具名（英文或中文）"/></div> }
       </div>
     </div>
   }

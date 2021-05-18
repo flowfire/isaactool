@@ -2,12 +2,14 @@ import React from 'react';
 import './Results.css';
 import service, { TAGS } from './AppService'
 import { peifangs, falldownImgs } from "./data/data";
-import { falldownNames, falldownScores } from "./data/extradata";
+import { falldownNames, falldownScores, itemChinese } from "./data/extradata";
 
 let number = Number(location.search.substr(1)) || 20
 let peifangsFlat = []
 peifangs.forEach(item => {
   item.item.score = 0
+  let hasChineseItem = itemChinese.find(itemChinese => itemChinese.id === item.item.id)
+  item.item.chineseName =  hasChineseItem ? hasChineseItem.chineseName : item.item.name
   item.peifangs.forEach(peifang => {
     let score = 0
     peifang.forEach(falldown => {
@@ -31,6 +33,15 @@ export default class Results extends React.PureComponent {
     thinMode: false,
     toolMode: "filter",
     searchKeyWord: "",
+    showDetail: false,
+    itemDetail: {
+      img: "",
+      name: "",
+      chineseName: "暂无中文译名",
+      id: 0,
+      description: "暂无中文描述",
+      hasTujian: false,
+    },
   }
 
   searchTimeout = 300
@@ -114,6 +125,7 @@ export default class Results extends React.PureComponent {
         let item = peifang.item
         if (item.id.toString().indexOf(keyWord) !== -1) return true
         if (item.name.indexOf(keyWord) !== -1) return true
+        if (item.chineseName.indexOf(keyWord) !== -1) return true
         return false
       })
       searchResults = searchResults.slice(0, number);
@@ -169,12 +181,40 @@ export default class Results extends React.PureComponent {
     service.trigger(TAGS.selectedFalldownsChange, service.selectedFalldowns)
   }
 
+  showItemDetail(id){
+    let itemExtra = itemChinese.find(itemChinese => itemChinese.id === id)
+    let item = peifangsFlat.find(item => item.item.id === id)
+    let itemDetail = {
+      name: "",
+      chineseName: "暂无中文译名",
+      id: 0,
+      description: "暂无中文描述",
+      hasTujian: false,
+    }
+    if (itemExtra) itemDetail = Object.assign({}, itemDetail, itemExtra, {hasTujian: true})
+    itemDetail.name = item.item.name
+    itemDetail.img = item.item.img
+    this.setState({
+      itemDetail,
+      showDetail: true,
+    })
+  }
+
   render(){
 
     let classArr = ["match"]
     if (this.state.thinMode) classArr.push("two-block")
     let className = classArr.join(" ")
     return <div className="Results">
+      { this.state.showDetail && <><div className="item-detail-mask"></div><div className="item-detail">
+        <div className="item-detail-close" onClick={() => {this.setState({showDetail: false})}}>×</div>
+        <div className="item-detail-title">{this.state.itemDetail.name}</div>
+        <div className="item-detail-image" style={{backgroundImage: `url(${this.state.itemDetail.img})`}}></div>
+        <div className="item-detail-chinese">{this.state.itemDetail.chineseName}</div>
+        <div className="item-detail-id">道具id：{this.state.itemDetail.id}</div>
+        <div className="item-detail-description">道具描述：{this.state.itemDetail.description}</div>
+        {this.state.itemDetail.hasTujian && <a target="_blank" href={`https://isaac.huijiwiki.com/wiki/${this.state.itemDetail.chineseName}`}>点此进入查看图鉴 》</a>}
+      </div></>}
       {this.state.toolMode === "filter" ? <><div className="current-selected">
         <div className="red-button opera-button" onClick={this.clearallSelectedFalldowns.bind(this)}>清除</div>
         <div className="delete-one opera-button" onClick={this.deleteSelectedFalldowns.bind(this)}>删除</div>
@@ -183,9 +223,9 @@ export default class Results extends React.PureComponent {
       </div>
       <div className="content">
         { !!this.state.filterResults.length && this.state.filterResults.map(result => <div className="result-card" key={result.item.id}>
-          <div className="item" style={{backgroundImage:`url(${result.item.img})`}}>
+          <div className="item" style={{backgroundImage:`url(${result.item.img})`}} onClick={this.showItemDetail.bind(this, result.item.id)}>
             {/* <img src={result.item.img} alt={result.item.name} /> */}
-            <div>{result.item.name}</div>
+            <div>{result.item.chineseName}</div>
           </div>
           { result.matchs.map((match, index) => <div key={index} className={match.has.length === 8 ? `${className} can-make`: className} onClick={this.itemMaded.bind(this, match)}>
             <div className="match-block">
@@ -208,9 +248,8 @@ export default class Results extends React.PureComponent {
         </div>) }
       </div></> : <div className="content">
         { !!this.state.searchResults.length && this.state.searchResults.map(result => <div className="result-card" key={result.item.id}>
-          <div className="item">
-            <img src={result.item.img} alt={result.item.name} />
-            <div>{result.item.name}</div>
+          <div className="item" style={{backgroundImage:`url(${result.item.img})`}} onClick={this.showItemDetail.bind(this, result.item.id)}>
+            <div>{result.item.chineseName}</div>
           </div>
           { result.peifangs.map((peifang, index) => <div key={index} className="match one-block">
             <div className="match-block">
