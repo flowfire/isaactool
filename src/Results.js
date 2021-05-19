@@ -124,7 +124,7 @@ export default class Results extends React.PureComponent {
       let searchResults = peifangs.filter(peifang => {
         let item = peifang.item
         if (item.id.toString().indexOf(keyWord) !== -1) return true
-        if (item.name.indexOf(keyWord) !== -1) return true
+        if (item.name.toLowerCase().indexOf(keyWord.toLowerCase()) !== -1) return true
         if (item.chineseName.indexOf(keyWord) !== -1) return true
         return false
       })
