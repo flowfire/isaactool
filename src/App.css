@@ -33,7 +33,7 @@ body {
 }
 
 .top {
-    flex: 0 40px;
+    flex: 0 30px;
     box-shadow: 0 -5px 0 -3px #123 inset;
 }
 

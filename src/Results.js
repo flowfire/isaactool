@@ -259,6 +259,7 @@ export default class Results extends React.PureComponent {
           </div>) }
         </div>) }
       </div>}
+      <div className="copy-right">许可协议：<a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/">CC BY-NC-SA 3.0</a> | 备案号：<a target="_blank" href="https://beian.miit.gov.cn/">沪ICP备2021014643号</a></div>
     </div>
   }
 }
