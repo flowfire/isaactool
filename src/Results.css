@@ -23,6 +23,7 @@
 }
 
 .current-selected img {
+    cursor: pointer;
     float: left;
     margin: 4px 0;
 }

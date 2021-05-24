@@ -160,13 +160,18 @@ export default class Results extends React.PureComponent {
   }
 
 
-  clearallSelectedFalldowns(){
+  clearallSelectedFalldown(){
     service.selectedFalldowns = []
     service.trigger(TAGS.selectedFalldownsChange, [])
   }
 
-  deleteSelectedFalldowns(){
+  deleteLastSelectedFalldown(){
     service.selectedFalldowns.pop()
+    service.trigger(TAGS.selectedFalldownsChange, service.selectedFalldowns)
+  }
+
+  deleteCurrentSelectedFalldown(index){
+    service.selectedFalldowns.splice(index, 1)
     service.trigger(TAGS.selectedFalldownsChange, service.selectedFalldowns)
   }
 
@@ -216,10 +221,10 @@ export default class Results extends React.PureComponent {
         {this.state.itemDetail.hasTujian && <a target="_blank" href={`https://isaac.huijiwiki.com/wiki/${this.state.itemDetail.chineseName}`}>点此进入查看图鉴 》</a>}
       </div></>}
       {this.state.toolMode === "filter" ? <><div className="current-selected">
-        <div className="red-button opera-button" onClick={this.clearallSelectedFalldowns.bind(this)}>清除</div>
-        <div className="delete-one opera-button" onClick={this.deleteSelectedFalldowns.bind(this)}>删除</div>
+        <div className="red-button opera-button" onClick={this.clearallSelectedFalldown.bind(this)}>清除</div>
+        <div className="delete-one opera-button" onClick={this.deleteLastSelectedFalldown.bind(this)}>删除</div>
         {!this.state.thinMode && <div className="blue-button opera-button" onClick={() => {this.setState({thinMode: true})}}>精简模式</div>}
-        { !!this.state.selectedFalldowns.length && this.state.selectedFalldowns.map((falldown, index) => <img key={index} src={falldownImgs[falldown]} alt={falldownNames[falldown]}/>) }
+        { !!this.state.selectedFalldowns.length && this.state.selectedFalldowns.map((falldown, index) => <img onClick={this.deleteCurrentSelectedFalldown.bind(this, index)} key={index} src={falldownImgs[falldown]} alt={falldownNames[falldown]}/>) }
       </div>
       <div className="content">
         { !!this.state.filterResults.length && this.state.filterResults.map(result => <div className="result-card" key={result.item.id}>
