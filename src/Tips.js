@@ -4,8 +4,9 @@ let number = Number(location.search.substr(1)) || 20
 
 export default class Tips extends React.PureComponent {
   componentDidMount(){
-    console.debug("更新日志：")
-    console.debug("2021-05-24: 增加了点击图标删除此掉落物的功能；添加了一个小彩蛋；增加了更新日志功能。")
+    console.log("更新日志：")
+    console.log("2021-05-24: 增加了点击图标删除此掉落物的功能；添加了一个小彩蛋；增加了更新日志功能。")
+    console.log("2021-05-27: 增加了百度统计功能。")
   }
   render(){
     return <div className="Tips">
