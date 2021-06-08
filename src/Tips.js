@@ -15,8 +15,8 @@ export default class Tips extends React.PureComponent {
         目前展示前 {number} 条结果（地址栏最后添加 ?数字 后回车可以更改展示数量）
         作者：
         <a href="https://space.bilibili.com/731375" target="_blank">bilibili：-德川家康薛定谔</a>
-        作者：
-        <a href="https://space.bilibili.com/731375" target="_blank">bilibili：-德川家康薛定谔</a>
+        本地版下载链接：
+        <a href="https://github.com/flowfire/isaactool/releases" target="_blank">bilibili：-德川家康薛定谔</a>
       </div>
     </div>
   }
