@@ -273,9 +273,6 @@ export default class Results extends React.PureComponent {
         <span class="gap"></span>
         <span>上海网安备案号：</span>
         <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31011502017884">沪公网安备31011502017884号</a>
-        <span class="gap"></span>
-        <span>作者：</span>
-        <a href="https://space.bilibili.com/731375" target="_blank">bilibili：-德川家康薛定谔</a>
         </div>
     </div>
   }

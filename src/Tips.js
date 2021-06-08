@@ -16,7 +16,7 @@ export default class Tips extends React.PureComponent {
         作者：
         <a href="https://space.bilibili.com/731375" target="_blank">bilibili：-德川家康薛定谔</a>
         本地版下载链接：
-        <a href="https://github.com/flowfire/isaactool/releases" target="_blank">bilibili：-德川家康薛定谔</a>
+        <a href="https://github.com/flowfire/isaactool/releases" target="_blank">Github</a>
       </div>
     </div>
   }
