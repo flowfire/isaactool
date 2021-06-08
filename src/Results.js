@@ -264,7 +264,19 @@ export default class Results extends React.PureComponent {
           </div>) }
         </div>) }
       </div>}
-      <div className="copy-right">许可协议：<a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/">CC BY-NC-SA 3.0</a> | 备案号：<a target="_blank" href="https://beian.miit.gov.cn/">沪ICP备2021014643号</a></div>
+      <div className="copy-right">
+        <span>许可协议：</span>
+        <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/">CC BY-NC-SA 3.0</a>
+        <span class="gap"></span>
+        <span>工信部备案号：</span>
+        <a target="_blank" href="https://beian.miit.gov.cn/">沪ICP备2021014643号-1</a>
+        <span class="gap"></span>
+        <span>上海网安备案号：</span>
+        <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31011502017884">沪公网安备31011502017884号</a>
+        <span class="gap"></span>
+        <span>作者：</span>
+        <a href="https://space.bilibili.com/731375" target="_blank">bilibili：-德川家康薛定谔</a>
+        </div>
     </div>
   }
 }

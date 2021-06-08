@@ -9,5 +9,6 @@
 
 .real-tip a {
     text-decoration: none;
+    margin-right: .5rem;
     color: #FF7755;
 }
